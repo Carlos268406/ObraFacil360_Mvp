@@ -1,15 +1,24 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>ObraFácil 360°</title>
-</head>
-<body>
-    <h1>ObraFácil 360°</h1>
-    <p>Reforma sem quebrar o bolso, confiança de ponta a ponta.</p>
 
-    <a href="/solicitar">
-        <button>Solicitar Serviço</button>
-    </a>
-</body>
-</html>
+<h1>Conte sobre sua obra</h1>
+
+<input id="nome" placeholder="Seu nome"><br><br>
+<input id="servico" placeholder="Qual serviço?"><br><br>
+<input id="bairro" placeholder="Seu bairro"><br><br>
+
+<button onclick="enviar()">Solicitar serviço</button>
+
+<script>
+function enviar() {s
+    let nome = document.getElementById("nome").value;
+    let servico = document.getElementById("servico").value;
+    let bairro = document.getElementById("bairro").value;
+
+    let mensagem = Olá, meu nome é ${nome}. Preciso de ${servico}. Estou no bairro ${bairro}.;
+
+    let numero = "5511997100740"; // COLOCA SEU NÚMERO AQUI
+
+    let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensagem);
+
+    window.open(url, "_blank");
+}
+</script>
