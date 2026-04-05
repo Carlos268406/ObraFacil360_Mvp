@@ -1,24 +1,16 @@
-
-<h1>Conte sobre sua obra</h1>
-
-<input id="nome" placeholder="Seu nome"><br><br>
-<input id="servico" placeholder="Qual serviço?"><br><br>
-<input id="bairro" placeholder="Seu bairro"><br><br>
-
-<button onclick="enviar()">Solicitar serviço</button>
-
-<script>
-function enviar() {s
-    let nome = document.getElementById("nome").value;
-    let servico = document.getElementById("servico").value;
-    let bairro = document.getElementById("bairro").value;
-
-    let mensagem = Olá, meu nome é ${nome}. Preciso de ${servico}. Estou no bairro ${bairro}.;
-
-    let numero = "5511997100740"; // COLOCA SEU NÚMERO AQUI
-
-    let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensagem);
-
-    window.open(url, "_blank");
-}
-</script>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>ObraFácil 360</title>
+</head>
+<body>
+    <h2>Conte sobre sua obra</h2>
+    <form action="/enviar" method="POST">
+        <input type="text" name="nome" placeholder="Seu nome" required><br><br>
+        <input type="text" name="servico" placeholder="Qual serviço?" required><br><br>
+        <input type="text" name="bairro" placeholder="Seu bairro" required><br><br>
+        <button type="submit">Solicitar serviço</button>
+    </form>
+</body>
+</html>
