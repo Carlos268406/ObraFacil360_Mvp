@@ -3,23 +3,28 @@ from urllib.parse import quote
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/enviar', methods=['POST'])
+
+@app.route('/enviar', methods=['POST'])  # mantenha o nome da rota igual ao action do HTML
 def enviar():
-    # Agora os nomes dos campos batem com o HTML
-    titulo = request.form.get('nome')
+    # Captura todos os campos do formulário
+    nome = request.form.get('nome')
+    servico = request.form.get('servico')
     bairro = request.form.get('bairro')
 
     numero_whatsapp = "5511997100740"
-    # Monta a mensagem com os dados recebidos
-    mensagem = f"{titulo} - {bairro}"
+    mensagem = f"Olá! Sou {nome}. Preciso de um orçamento para {servico} no bairro {bairro}."
     texto_codificado = quote(mensagem)
 
     link_whatsapp = f"https://wa.me/{numero_whatsapp}?text={texto_codificado}"
+
+    # 🔴 IMPORTANTE: redirecionar o usuário
     return redirect(link_whatsapp)
 
-if __name__ == '_main_':
+
+if __name__ == '__main__':
     app.run(debug=True)
