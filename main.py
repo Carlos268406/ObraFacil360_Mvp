@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from urllib.parse import quote
 
-app = Flask(__name__)
+app = Flask(__name__,template_folder='app/templates')
 
 
 @app.route('/')
